@@ -35,6 +35,9 @@ object CreateDF {
     val unDF = myslDF.union(psqlDF)
     unDF.limit(50).write.mode(SaveMode.Overwrite).format("parquet").saveAsTable("test1")
     println("Succes")
+
+    unDF.show()
+
   }
 
 }
