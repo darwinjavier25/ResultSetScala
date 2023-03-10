@@ -1,7 +1,7 @@
 package coorp.darwin.dataframes
 
 import coorp.darwin.ResultSet.IntermediateDF.{mySqlList, psqlList}
-import org.apache.spark.sql.{SaveMode, SparkSession}
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types._
 
 
@@ -33,7 +33,7 @@ object CreateDF {
     val psqlDF = spark.createDataFrame(psqlRdd, schema)
 
     val unDF = myslDF.union(psqlDF)
-    unDF.limit(50).write.mode(SaveMode.Overwrite).format("parquet").saveAsTable("test1")
+    //unDF.limit(50).write.mode(SaveMode.Overwrite).format("parquet").saveAsTable("test1")
     println("Succes")
 
     unDF.show()

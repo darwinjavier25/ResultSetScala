@@ -18,6 +18,7 @@ class MysqlRs extends conection {
   //var ls = new ListBuffer[String]()
   var ls = ListBuffer[Any]()
   val mList = scala.collection.mutable.MutableList(Row(null, null, null, null))
+  val mList2 = scala.collection.mutable.MutableList(Row(null, null, null, null))
 
   while (exctRs.next()) {
     val id = exctRs.getInt(1)
@@ -27,5 +28,4 @@ class MysqlRs extends conection {
     //println(id + " | " + email)
     mList.++=(ListBuffer(Row(id, email, phone, date)))
   }
-
 }
